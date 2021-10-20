@@ -1,0 +1,205 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    
+    <title>Halaman Login</title>
+
+    <style>
+    .center {
+    max-width: 400px;
+    align-items: center;
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 60%;
+    padding: 100px;
+    background-color: #DCDCDC ;
+    }
+    </style>
+
+
+    
+
+</head>
+
+<body bgcolor="#696969">
+
+    <div class="center">
+        <div class="container">
+            <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class = "login">
+                    <form  method="post" onSubmit="validasi()">
+                        <table id="tabel-input">
+                            <tr>
+                                <td class="label-formulir">Unggah Foto</td>
+                                <td class="isian-formulir"><input type="file" name="file" class="isian-formulir isian-formulir-border" id=file></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Nama Lengkap</td>
+                                <td class="isian-formulir"><input type="text" name="nl" class="isian-formulir isian-formulir-border" id="nl"></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Nama Panggilan</td>
+                                <td class="isian-formulir"><input type="text" name="np" class="isian-formulir isian-formulir-border" id="np"></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Tempat Lahir</td>
+                                <td class="isian-formulir"><input type="text" name="tempat" class="isian-formulir isian-formulir-border" id="tempat"></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Tanggal Lahir</td>
+                                <td class="isian-formulir"><input type=date name="tanggal" class="isian-formulir isian-formulir-border" id=tanggal placeholder="" onchange="getage(this.value.substr(0, 4))"></td>  
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Usia</td>
+                                <td class="isian-formulir"><input type="text" class="form-control" id="usia" placeholder="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Jenis Kelamin</td>
+                                <td class="isian-formulir"><input type="text" name="jk" class="isian-formulir isian-formulir-border" id="jk"></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Kota</td>
+                                <td class="isian-formulir"><label for="kota"> </label>
+                                    <select class="form-control" id="kota">
+                                      <option>Aceh</option>
+                                      <option>Bali</option>
+                                      <option>Bangka</option>
+                                      <option>Banten</option>
+                                      <option>Bengkulu</option>
+                                      <option>Gorontalo</option>
+                                      <option>Jakarta</option>
+                                      <option>Jambi</option>
+                                      <option>Jawa Barat</option>
+                                      <option>Jawa Tengah</option>
+                                      <option>Jawa Timur</option>
+                                      <option>Kalimantan Barat</option>
+                                      <option>Kalimantan Selatan</option>
+                                      <option>Kalimantan Tengah</option>
+                                      <option>Kalimantan Timur</option>
+                                      <option>Kalimantan Utara</option>
+                                      <option>Kepulauan Riau</option>
+                                      <option>Lampung</option>
+                                      <option>Maluku</option>
+                                      <option>Maluku Utara</option>
+                                      <option>Nusa Tenggara Barat</option>
+                                      <option>Nusa Tenggara Timur</option>
+                                      <option>Papua</option>
+                                      <option>Papua Barat</option>
+                                      <option>Sulawesi Selatan</option>
+                                      <option>Sulawesi Tengah</option>
+                                      <option>Sulawesi Tenggara</option>
+                                      <option>Sulawesi Utara</option>
+                                      <option>Sumatra Barat</option>
+                                      <option>Sumatra Selatan</option>
+                                      <option>Sumatra Utara</option>
+                                      <option>Yogyakarta</option>
+                                      <option></option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">Email</td>
+                                <td class="isian-formulir"><input type="text" onblur="validateEmail(this);" name="email" class="isian-formulir isian-formulir-border" id="email" required></td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">No HP</td>
+                                <td class="isian-formulir"><input type="text" name="hp" class="isian-formulir isian-formulir-border" id="hp"></td>
+                            </tr>
+                            <tr>
+                                <td class="label-formulir">
+                                    <select class="form-control" id="medsos">
+                                        <option>Facebook</option>
+                                        <option>Instagram</option>
+                                        <option>Twitter</option>
+                                    </select></td>
+                                <td class="isian-formulir"><label for = "medsos"  name="medsos" id="medsos" select class="form-control">
+                                    
+                                      <input type="text" class="label-formulir" id="isi">
+                                </td>
+                            </tr>              
+                            <tr>
+                                <td class="label-formulir"></td>
+                                <td class="isian-formulir"><input type="submit" name="Daftar" value="Daftar" class="tombol"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                </div>
+             </div>
+            </div>
+           </div>
+    </div>
+    
+</body>
+
+<script type="text/javascript">
+
+
+        var file = document.getElementById("file");
+		var nl = document.getElementById("nl");
+        var np = document.getElementById("np");
+        var tempat = document.getElementById("tempat");
+        var tanggal = document.getElementById("tanggal");
+        var usia = document.getElementById("usia");
+        var jk = document.getElementById("jk");
+        var kota = document.getElementById("kota");
+        var hp = document.getElementById("hp");
+		var email = document.getElementById("email");
+		var medsos = document.getElementById("medsos");
+        pob = document.getElementById('pob');
+        dob = document.getElementById('dob');
+        var reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    function getage(born) {
+            yearnow = new Date().getFullYear();
+            intnow = parseInt(yearnow);
+            intborn = parseInt(born);
+            usia = intnow - intborn;
+
+            document.getElementById('usia').value = usia;
+
+            if (usia < 18) {
+                alert('Sorry, age must be above 18');
+            return false;
+            } else if (usia > 30) {
+                alert('Sorry, age must be below 30');
+            return false;
+            } else {
+            return true;
+            }
+        }
+
+	function validasi() {
+		if (file.value == "", nl.value == "", np.value == "" , tempat.value == "" , tanggal.value == "" , jk.value == "" , kota.value == "" , hp.value == "" , medsos.value == "" , email.value=="" , isi.value == "") {
+			alert('Data Harus Di Isi');
+            file.focus;
+            return false;
+        }else if (file.value == ''){
+            alert('Data Harus Di Isi');
+            file.focus();
+            return false;
+		}else if (nl.value.length, nl.value.length <2){
+            alert('Nama Minimal 3 Karakter');
+            nl.focus();
+            return false;
+        }else if ( tanggal.value== null || tanggal.value== ''){
+            alert('Mohon isi Tanggal Lahir');
+            return false;
+        }else if (!reg.test(email.value)){
+            alert('Invalid Email Address');
+            email.focus;
+            return (false);    
+        }else if (hp.value.length <4){
+            alert('No HP Minimal 4 Karakter');
+            hp.focus();
+            return false;
+        }else{
+            alert('Terimakasih')
+            return true;
+        }
+	}
+</script>
+
+</html>
